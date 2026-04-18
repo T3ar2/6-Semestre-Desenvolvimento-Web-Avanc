@@ -1,0 +1,6 @@
+C:\Users\nicol\OneDrive\Área de Trabalho\estudo 2\6-Semestre-Desenvolvimento-Web-Avanc\minhaAPI\obj\Debug\net9.0\minhaAPI.csproj.AssemblyReference.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\estudo 2\6-Semestre-Desenvolvimento-Web-Avanc\minhaAPI\obj\Debug\net9.0\minhaAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\OneDrive\Área de Trabalho\estudo 2\6-Semestre-Desenvolvimento-Web-Avanc\minhaAPI\obj\Debug\net9.0\minhaAPI.AssemblyInfoInputs.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\estudo 2\6-Semestre-Desenvolvimento-Web-Avanc\minhaAPI\obj\Debug\net9.0\minhaAPI.AssemblyInfo.cs
+C:\Users\nicol\OneDrive\Área de Trabalho\estudo 2\6-Semestre-Desenvolvimento-Web-Avanc\minhaAPI\obj\Debug\net9.0\minhaAPI.csproj.CoreCompileInputs.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\estudo 2\6-Semestre-Desenvolvimento-Web-Avanc\minhaAPI\obj\Debug\net9.0\minhaAPI.sourcelink.json

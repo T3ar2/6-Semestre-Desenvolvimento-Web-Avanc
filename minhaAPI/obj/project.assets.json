@@ -2710,11 +2710,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Área de Trabalho\\estudo 2\\minhaAPI\\minhaAPI.csproj",
+      "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Área de Trabalho\\estudo 2\\6-Semestre-Desenvolvimento-Web-Avanc\\minhaAPI\\minhaAPI.csproj",
       "projectName": "minhaAPI",
-      "projectPath": "C:\\Users\\nicol\\OneDrive\\Área de Trabalho\\estudo 2\\minhaAPI\\minhaAPI.csproj",
+      "projectPath": "C:\\Users\\nicol\\OneDrive\\Área de Trabalho\\estudo 2\\6-Semestre-Desenvolvimento-Web-Avanc\\minhaAPI\\minhaAPI.csproj",
       "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nicol\\OneDrive\\Área de Trabalho\\estudo 2\\minhaAPI\\obj\\",
+      "outputPath": "C:\\Users\\nicol\\OneDrive\\Área de Trabalho\\estudo 2\\6-Semestre-Desenvolvimento-Web-Avanc\\minhaAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config"
