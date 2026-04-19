@@ -11,7 +11,7 @@ namespace MinhaApi.Controllers;
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class CategoriasController : ControllerBase 
+public class CategoriasController : ControllerBase
 {
     private readonly AppDbContext ctx;
 
@@ -23,8 +23,8 @@ public class CategoriasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetAllAsync()
     {
-        var categorias = await ctx.Categorias.ToListAsync().AsNoTracking();
-        var res = categorias.Select(c => new CategoriaDTO 
+        var categorias = await ctx.Categorias.AsNoTracking().ToListAsync();
+        var res = categorias.Select(c => new CategoriaDTO
         {
             Id = c.Id,
             Nome = c.Nome
@@ -35,32 +35,40 @@ public class CategoriasController : ControllerBase
     }
 
     [HttpGet("{id:int}", Name = "GetById")]
-    public async Task<ActionResult<CategoriaDTO>> GetByIdAsync(int id) { 
+    public async Task<ActionResult<CategoriaDTO>> GetByIdAsync(int id)
+    {
         var Categoria = await ctx.Categorias.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
 
-        var res = new CategoriaDTO 
+        if(Categoria is null) return NotFound();
+
+        var res = new CategoriaDTO
         {
             Id = Categoria.Id,
             Nome = Categoria.Nome
         };
-        return Ok(res)  
+        return Ok(res);
     }
 
     [HttpPost]
-    public async Task<ActionResult<CategoriaDto>> CreateAsync(CategoriaCreateDto dto) {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
-        var categoria = new Categoria 
-        {
-            Nome = dto.Nome
-        };
-    }
+    public async Task<ActionResult<CategoriaDTO>> CreateAsync(CategoriaCreateDTO dto)
+    {
 
-    ctx.Categorias.Add(categoria);
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        var categoria = new Categoria
+        {
+            Nome = dto.Nome,
+        };
+
+        ctx.Categorias.Add(categoria);
         await ctx.SaveChangesAsync();
 
-    var res = new CategoriaDTO { 
-        Id = categoria.Nome
-    }
+        var res = new CategoriaDTO
+        {
+            Id = categoria.Id,
+            Nome = categoria.Nome
+        };
 
-    return CreatedRoute("GetById", new { id = CategoriasController.Id}, res);
+        return CreatedAtRoute("GetById", new { id = categoria.Id }, res);
+    }
 }

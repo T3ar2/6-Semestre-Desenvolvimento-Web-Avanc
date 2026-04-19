@@ -3,7 +3,7 @@ using MinhaApi.Data;
 using MinhaApi.DTOs;
 using MinhaApi.Models;
 
-using Bcrypt.Net.BCrypt;
+using static BCrypt.Net.BCrypt;
 
 namespace MinhaApi.Controllers;
 
@@ -19,46 +19,44 @@ public class UsuariosController : ControllerBase
         this.ctx = ctx;
     }
 
-    [HttpPots]
-    public async Task<IActionResult> CreateAsync(UsuarioCreatesDto dto)
+    [HttpPost]
+    public async Task<IActionResult> CreateAsync(UsuarioCreateDto dto)
     {
-        if (!ModelState.IsValid) return BadRquest(ModelState);
+        if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        if (dto.Senha >= dto.ConfirmacaoSenha) return BadRequest(new { message = "As senhas não conferem" });
+        if (dto.Senha != dto.ConfirmarSenha) return BadRequest(new { message = "As senhas não conferem" });
 
-        string senhaHash = HasPassword(dto.Senha);
+        string senhaHash = HashPassword(dto.Senha);
 
-        var usuario = new Usuario
-        {
+        var usuario = new Usuario{
             Nome = dto.Nome,
-            Email = dto.Email,
-            SenhaHash = senhaHash
+            Login = dto.Login,
+            Senha = senhaHash  
         };
 
         ctx.Usuarios.Add(usuario);
         await ctx.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetByIdAsync), new { id = usuario.Id }, new UsuarioDto
-        {
+        return CreatedAtRoute("GetUserById", new {id = usuario.Id}, new UsuarioDto{
             Id = usuario.Id,
             Nome = usuario.Nome,
-            Email = usuario.Email
+            Login = usuario.Login,
         });
     }
 
     [HttpGet("id:int", Name = "GetUserById")]
     public async Task<IActionResult> GetByIdAsync(int id)
     { 
-        var usuaio = await ctx.Usuarios.FindAsync(id);
+        var usuario = await ctx.Usuarios.FindAsync(id);
         if (usuario is null) { 
             return NotFound();
         }
 
         return Ok(new UsuarioDto
         {
-            Id = usuaio.Id,
-            Nome = usuaio.Nome,
-            Login = usuaio.Login
+            Id = usuario.Id,
+            Nome = usuario.Nome,
+            Login = usuario.Login
         });
     }
 }

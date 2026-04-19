@@ -1,3 +1,5 @@
+using MinhaAPI.DTOs;
+
 namespace MinhaApi.DTOs;
 
 public class CategoriaComProdutosDTO {

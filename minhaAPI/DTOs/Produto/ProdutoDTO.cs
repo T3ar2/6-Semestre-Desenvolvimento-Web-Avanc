@@ -1,3 +1,5 @@
+using MinhaApi.DTOs;
+
 namespace MinhaAPI.DTOs;
 
 public class ProdutoDTO
