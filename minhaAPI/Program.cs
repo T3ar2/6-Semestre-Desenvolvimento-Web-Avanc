@@ -11,11 +11,8 @@ using MinhaApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-builder.Services.AddDbContext<AppDbContext>(options =>{
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-});
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors(options =>{
     options.AddPolicy("politica", policy =>{

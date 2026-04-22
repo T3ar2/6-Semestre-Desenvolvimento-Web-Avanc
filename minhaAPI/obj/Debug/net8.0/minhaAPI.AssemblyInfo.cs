@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("minhaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c91d1ce6d70285a8fe2c6bdc1a20cfa538a63f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff87086bbb1f49cc402652d71e869180bab47103")]
 [assembly: System.Reflection.AssemblyProductAttribute("minhaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("minhaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
